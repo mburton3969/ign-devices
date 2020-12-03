@@ -6,10 +6,10 @@ html, body{
   margin:auto;
   text-align: center;
   margin-top:2%;
-  margin-bottom: 2%;
 }
 .main-card{
   border-radius: 10px;
   margin:auto;
+  margin-top:2%;
 }
 
