@@ -4,6 +4,7 @@ $cache_buster = uniqid();
 ?>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Device Donation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css" integrity="sha512-Xqa8NIcI5CmhT3dLIwJ/NOX2lzdnApXaRsDOEXijQZJ/WVhZon1xLjD8/RppPqbvIoM2buTnXgi1/QsUVmixqw==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
