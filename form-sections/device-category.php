@@ -1,21 +1,12 @@
-<div id="categoryDiv" class="main-card uk-card uk-card-default uk-card-body uk-width-1-2@m" uk-scrollspy="cls:uk-animation-slide-right">
+<div id="categoryDiv" class="main-card uk-card uk-card-default uk-card-body uk-width-1-2@m" style="display:none;" uk-scrollspy="cls:uk-animation-slide-right">
   
         <?php include 'form-sections/dotnav.php'; ?>
       
-        <h3 class="uk-card-title">Device Donation Request</h3>
-      
-        <p>
-          Fill out the form below to find out if your device can be donated to 
-          <a href="https:/ignition633.org" target="_blank">Ignition633 Ministries</a>.
-        </p>
-      
-        <hr />
-      
-        <h3 class="uk-card-title uk-text-center"><small>Let's Get Started...</small><br>What Kind of Device Is It?</h3>
+        <h3 class="uk-card-title uk-text-center"><small>Let's Get Started...</small><br><br>What Kind of Device Is It?</h3>
       
         <div class="uk-margin uk-text-center">
             <div uk-form-custom="target: > * > span:first-child">
-                <select id="device_category" name="device_category" onchange="nav_next();">
+                <select id="device_category" name="device_category" onchange="get_manufacturers(this.value);">
                     <option value="">Please select device type</option>
               <?php
                 $q = "SELECT DISTINCT `device_category` FROM `apple_device_values` WHERE `inactive` != 'Yes'";
@@ -24,6 +15,7 @@
                   echo '<option value="' . $r['device_category'] . '">' . $r['device_category'] . '</option>';
                 }
               ?>
+                  <option value="Other">Other</option>
                 </select>
                 <button class="uk-button uk-button-default" type="button" tabindex="-1">
                     <span></span>
@@ -31,5 +23,7 @@
                 </button>
             </div>
         </div>
+
+  <?php include 'form-sections/help-footer.php'; ?>
       
     </div>

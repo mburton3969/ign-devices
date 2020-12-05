@@ -3,13 +3,34 @@ html, body{
 }
 
 .main-img{
-  margin:auto;
+  margin: auto;
   text-align: center;
-  margin-top:2%;
+  margin-top: 2%;
+}
+.main-img img{
+  width: 25%;
 }
 .main-card{
   border-radius: 10px;
-  margin:auto;
-  margin-top:2%;
+  margin: auto;
+  margin-top: 2%;
 }
 
+.intro-icons img{
+  width: 25%;
+}
+
+/*.uk-notification, .uk-notification-top-right, .uk-notification-message{
+  background: #D3D3D3 !Important;
+}*/
+
+#review_box{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.help-footer{
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: -45px !Important;
+}
