@@ -1,4 +1,5 @@
 //Globals
+var currentHost = window.location.host;
 var cur_nav = 0;
 var nav_order = [
   'Intro',
@@ -159,7 +160,11 @@ function prep_review(){
 
 function submit_donation(){
   var form = document.querySelector('form');
-  var url = 'http://beta-toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
+  if(currentHost === 'devices.ignition633.org'){
+    var url = 'http://toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
+  }else{
+    var url = 'http://beta-toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
+  }
   var params = new FormData(form);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {//Call a function when the state changes.
