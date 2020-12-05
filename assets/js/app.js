@@ -22,10 +22,14 @@ var nav_order = [
 //Functions
 function get_manufacturers(category){
   if(category === ''){
-    nav_prev();
     notify('Please Select A Device Type!','danger','top-right');
     return;
   }
+  if(category === 'Other'){
+    reject_device();
+    return;
+  }
+  nav_next();
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
       if(this.readyState == 4 && this.status == 200) {
@@ -33,12 +37,21 @@ function get_manufacturers(category){
          var r = JSON.parse(this.responseText);
         if(r.response === 'GOOD'){
           var type_input = document.getElementById('device_brand');
+          type_input.innerHTML = '';
+          var opt = document.createElement('option');
+          opt.value = '';
+          opt.innerHTML = 'Please Select Manufacturer';
+          type_input.appendChild(opt);
           r.brands.forEach(function(b){
             var opt = document.createElement('option');
             opt.value = b;
             opt.innerHTML = b;
             type_input.appendChild(opt);
           });
+          var opt = document.createElement('option');
+          opt.value = 'Other';
+          opt.innerHTML = 'Other';
+          type_input.appendChild(opt);
           console.log('Brands Loaded');
         }else{
           console.error(r.message);
@@ -53,10 +66,14 @@ function get_manufacturers(category){
 function get_models(brand){
   var category = document.getElementById('device_category').value;
   if(brand === ''){
-    nav_prev();
     notify('Please Select A Device Model!','danger','top-right');
     return;
   }
+  if(brand === 'Other'){
+    reject_device();
+    return;
+  }
+  nav_next();
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
       if(this.readyState == 4 && this.status == 200) {
@@ -64,12 +81,21 @@ function get_models(brand){
          var r = JSON.parse(this.responseText);
         if(r.response === 'GOOD'){
           var type_input = document.getElementById('device_model');
+          type_input.innerHTML = '';
+          var opt = document.createElement('option');
+          opt.value = '';
+          opt.innerHTML = 'Please Select Model';
+          type_input.appendChild(opt);
           r.models.forEach(function(m){
             var opt = document.createElement('option');
             opt.value = m;
             opt.innerHTML = m;
             type_input.appendChild(opt);
           });
+          var opt = document.createElement('option');
+          opt.value = 'Other';
+          opt.innerHTML = 'Other';
+          type_input.appendChild(opt);
           console.log('Models Loaded');
         }else{
           console.error(r.message);
@@ -133,7 +159,7 @@ function prep_review(){
 
 function submit_donation(){
   var form = document.querySelector('form');
-  var url = 'assets/php/request-handler.php';
+  var url = 'http://beta-toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
   var params = new FormData(form);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {//Call a function when the state changes.
@@ -144,7 +170,7 @@ function submit_donation(){
           accept_device();
           console.log('Done');
         }else{
-          reject_device();
+          notify(r.message,'danger','top-right',5000);
         }
       }
   }

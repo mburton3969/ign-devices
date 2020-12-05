@@ -6,7 +6,7 @@
   
         <div class="uk-margin uk-text-center">
             <div uk-form-custom="target: > * > span:first-child">
-                <select id="device_condition" name="device_condition" onchange="nav_next();">
+                <select id="device_condition" name="device_condition" onchange="if(this.value === 'No'){reject_device();return;} nav_next();">
                     <option value="">Please Select Condition</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>

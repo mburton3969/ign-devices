@@ -1,4 +1,4 @@
-<div id="rejectDiv" class="main-card uk-card uk-card-default uk-card-body uk-width-1-2@m" uk-scrollspy="cls:uk-animation-slide-right" style="display:none;">
+<div id="rejectDiv" class="main-card uk-card uk-card-default uk-card-body uk-width-1-2@m" style="display:none;">
   
   <?php include 'form-sections/main-logo.php'; ?>
 

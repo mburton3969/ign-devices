@@ -6,7 +6,7 @@
       
         <div class="uk-margin uk-text-center">
             <div uk-form-custom="target: > * > span:first-child">
-                <select id="device_category" name="device_category" onchange="get_manufacturers(this.value);nav_next();">
+                <select id="device_category" name="device_category" onchange="get_manufacturers(this.value);">
                     <option value="">Please select device type</option>
               <?php
                 $q = "SELECT DISTINCT `device_category` FROM `apple_device_values` WHERE `inactive` != 'Yes'";
@@ -15,6 +15,7 @@
                   echo '<option value="' . $r['device_category'] . '">' . $r['device_category'] . '</option>';
                 }
               ?>
+                  <option value="Other">Other</option>
                 </select>
                 <button class="uk-button uk-button-default" type="button" tabindex="-1">
                     <span></span>

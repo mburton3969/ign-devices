@@ -6,7 +6,7 @@
       
         <div class="uk-margin uk-text-center">
             <div uk-form-custom="target: > * > span:first-child">
-                <select id="device_model" name="device_model" onchange="nav_next();">
+                <select id="device_model" name="device_model" onchange="if(this.value === 'Other'){reject_device();return;} nav_next();">
                     <option value="">Please Select Model</option>
                 </select>
                 <button class="uk-button uk-button-default" type="button" tabindex="-1">
