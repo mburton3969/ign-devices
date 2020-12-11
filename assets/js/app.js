@@ -161,9 +161,9 @@ function prep_review(){
 function submit_donation(){
   var form = document.querySelector('form');
   if(currentHost === 'devices.ignition633.org'){
-    var url = 'http://toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
+    var url = '//toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
   }else{
-    var url = 'http://beta-toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
+    var url = '//beta-toolbox.ignition633.org/device_donation/request?apiKey=mths3969';
   }
   var params = new FormData(form);
   var xhr = new XMLHttpRequest();
@@ -263,3 +263,47 @@ function notify(message,status='success',position='top-right',timeout=5000){
   });
 }
 
+
+//Shipping Toggle Functions
+function drop_off(){
+  var street_address = document.getElementById('street_address');
+  street_address.value = 'Drop-Off';
+  street_address.style.display = 'none';
+  var street_address_2 = document.getElementById('street_address_2');
+  street_address_2.value = 'Drop-Off';
+  street_address_2.style.display = 'none';
+  var city = document.getElementById('city');
+  city.value = 'Drop-Off';
+  city.style.display = 'none';
+  var state = document.getElementById('state');
+  state.value = 'Drop-Off';
+  state.style.display = 'none';
+  var zip = document.getElementById('zip');
+  zip.value = 'Drop-Off';
+  zip.style.display = 'none';
+  var link = document.getElementById('shipping_toggle');
+  link.innerHTML = 'I want to ship my device to you.';
+  link.href = 'Javascript: ship_it();';
+}
+
+
+function ship_it(){
+  var street_address = document.getElementById('street_address');
+  street_address.value = '';
+  street_address.style.display = 'inline';
+  var street_address_2 = document.getElementById('street_address_2');
+  street_address_2.value = '';
+  street_address_2.style.display = 'inline';
+  var city = document.getElementById('city');
+  city.value = '';
+  city.style.display = 'inline';
+  var state = document.getElementById('state');
+  state.value = '';
+  state.style.display = 'inline';
+  var zip = document.getElementById('zip');
+  zip.value = '';
+  zip.style.display = 'inline';
+  var link = document.getElementById('shipping_toggle');
+  link.innerHTML = 'I want to drop my device off in person.';
+  link.href = 'Javascript: drop_off();';
+}

@@ -3,6 +3,10 @@
         <?php include 'form-sections/dotnav.php'; ?>
       
         <h3 class="uk-card-title uk-text-center">Where should we send the pre-paid shipping label?</h3>
+  
+        <a id="shipping_toggle" href="Javascript: drop_off();" class="uk-text-center">I want to drop my device off in person.</a>
+  
+        <br><br>
    
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-1-2@s">
