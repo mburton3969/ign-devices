@@ -281,6 +281,7 @@ function drop_off(){
   var zip = document.getElementById('zip');
   zip.value = 'Drop-Off';
   zip.style.display = 'none';
+  document.getElementById('address_title').innerHTML = 'Who should we send the donation receipt to?';
   var link = document.getElementById('shipping_toggle');
   link.innerHTML = 'I want to ship my device to you.';
   link.href = 'Javascript: ship_it();';
@@ -303,6 +304,7 @@ function ship_it(){
   var zip = document.getElementById('zip');
   zip.value = '';
   zip.style.display = 'inline';
+  document.getElementById('address_title').innerHTML = 'Where should we send the pre-paid shipping label?';
   var link = document.getElementById('shipping_toggle');
   link.innerHTML = 'I want to drop my device off in person.';
   link.href = 'Javascript: drop_off();';
